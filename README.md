@@ -9,7 +9,7 @@ __For the best security of the runner, always install on the runner the _latest 
 Latest versions and installation options are available at the [InSpec](http://inspec.io/) site.
 
 ## Running This Overlay
-When the __"runner"__ host uses this profile overlay for the first time, follow these instructions: 
+When the __"runner"__ host uses this profile overlay for the first time, follow these steps: 
 
 ```
 mkdir profiles
@@ -18,10 +18,11 @@ git clone https://github.cms.gov/ispg-dev/cms-ars-3.1-high-microsoft-iis-8.5-ser
 git clone https://github.com/mitre/microsoft-iis-8.5-server-stig-baseline.git
 cd cms-ars-3.1-high-microsoft-iis-8.5-server-stig-overlay
 bundle install
-inspec exec ../cms-ars-3.1-high-microsoft-iis-8.5-server-stig-overlay -t winrm://$winhostip --user 'Administrator' --password=Pa55w0rd --reporter cli json:iis-server-overlay-results.json
+cd ..
+inspec exec cms-ars-3.1-high-microsoft-iis-8.5-server-stig-overlay --target=winrm://<your_target_host_name_or_ip_address> --user=<target_account_with_administrative_privileges> --password=<password_for_target_account> --reporter=cli json:<path_to_your_output_file/name_of_your_output_file.json> 
 ```
 
-For every successive run, follow these instructions to always have the latest version:
+For every successive run, follow these steps to always have the latest version of this overlay and dependent profiles:
 
 ```
 cd profiles/cms-ars-3.1-high-microsoft-iis-8.5-server-stig-overlay
@@ -30,7 +31,8 @@ cd ../microsoft-iis-8.5-server-stig-baseline
 git pull
 cd ../cms-ars-3.1-high-microsoft-iis-8.5-server-stig-overlay
 bundle install
-inspec exec ../cms-ars-3.1-high-microsoft-iis-8.5-server-stig-overlay -t winrm://$winhostip --user 'Administrator' --password=Pa55w0rd --reporter cli json:iis-server-overlay-results.json
+cd ..
+inspec exec cms-ars-3.1-high-microsoft-iis-8.5-server-stig-overlay --target=winrm://<your_target_host_name_or_ip_address> --user=<target_account_with_administrative_privileges> --password=<password_for_target_account> --reporter=cli json:<path_to_your_output_file/name_of_your_output_file.json> 
 ```
 
 ## Viewing the JSON Results
