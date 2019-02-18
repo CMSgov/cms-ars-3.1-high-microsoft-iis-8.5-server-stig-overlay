@@ -1,6 +1,6 @@
 # encoding: utf-8
 
-include_controls 'iis-server-baseline' do
+include_controls 'microsoft-iis-8.5-server-stig-baseline' do
 
   control 'V-76681' do
     desc 'Log files are a critical component to the successful management of an IS used within the CMS. By generating log files with useful information web administrators can leverage them in the event of a disaster, malicious attack, or other site specific needs.
