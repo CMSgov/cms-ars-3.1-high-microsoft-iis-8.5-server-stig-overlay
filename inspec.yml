@@ -9,7 +9,7 @@ version: 0.1.0
 
 depends:
 - name: microsoft-iis-8.5-server-stig-baseline
-  path: ../microsoft-iis-8.5-server-stig-baseline
+  path: microsoft-iis-8.5-server-stig-baseline
   
 attributes:
   - name: is_proxy
