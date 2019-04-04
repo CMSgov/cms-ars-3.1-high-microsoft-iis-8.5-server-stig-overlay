@@ -8,6 +8,23 @@ __For the best security of the runner, always install on the runner the _latest 
 
 Latest versions and installation options are available at the [InSpec](http://inspec.io/) site.
 
+```
+# description: 'Set to true if this system is running as a proxy server'
+is_proxy: false
+
+# description: 'List of fields to be included in Web Server Logging Configuration'
+log_fileds: ['Date', 'Time', 'ClientIP', 'UserName', 'Method', 'UriQuery', 'HttpStatus', 'Referer']
+
+# description: 'Minimum number of users required for server to operate'
+minimal_local_users: ['Administrator', 'Guest', 'inspec']
+
+# description: 'IIS site log directory'
+log_directory: 'C:\inetpub\logs\LogFiles'
+
+# description: 'Set to true if the file system object component is required for operations'
+file_system_object_component_required: false
+```
+
 ## Running This Overlay
 When the __"runner"__ host uses this profile overlay for the first time, follow these steps: 
 
@@ -19,7 +36,7 @@ git clone https://github.com/mitre/microsoft-iis-8.5-server-stig-baseline.git
 cd cms-ars-3.1-high-microsoft-iis-8.5-server-stig-overlay
 bundle install
 cd ..
-inspec exec cms-ars-3.1-high-microsoft-iis-8.5-server-stig-overlay --target=winrm://<your_target_host_name_or_ip_address> --user=<target_account_with_administrative_privileges> --password=<password_for_target_account> --reporter=cli json:<path_to_your_output_file/name_of_your_output_file.json> 
+inspec exec cms-ars-3.1-high-microsoft-iis-8.5-server-stig-overlay --attrs=<path_to_your_attributes_file/name_of_your_attributes_file.yml> --target=winrm://<your_target_host_name_or_ip_address> --user=<target_account_with_administrative_privileges> --password=<password_for_target_account> --reporter=cli json:<path_to_your_output_file/name_of_your_output_file.json> 
 ```
 
 For every successive run, follow these steps to always have the latest version of this overlay and dependent profiles:
@@ -31,7 +48,7 @@ cd ../cms-ars-3.1-high-microsoft-iis-8.5-server-stig-overlay
 git pull
 bundle install
 cd ..
-inspec exec cms-ars-3.1-high-microsoft-iis-8.5-server-stig-overlay --target=winrm://<your_target_host_name_or_ip_address> --user=<target_account_with_administrative_privileges> --password=<password_for_target_account> --reporter=cli json:<path_to_your_output_file/name_of_your_output_file.json> 
+inspec exec cms-ars-3.1-high-microsoft-iis-8.5-server-stig-overlay --attrs=<path_to_your_attributes_file/name_of_your_attributes_file.yml> --target=winrm://<your_target_host_name_or_ip_address> --user=<target_account_with_administrative_privileges> --password=<password_for_target_account> --reporter=cli json:<path_to_your_output_file/name_of_your_output_file.json> 
 ```
 
 ## Viewing the JSON Results
