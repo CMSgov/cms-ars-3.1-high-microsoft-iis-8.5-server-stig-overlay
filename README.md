@@ -17,6 +17,9 @@ is_proxy: false
 # description: 'List of fields to be included in Web Server Logging Configuration'
 log_fileds: ['Date', 'Time', 'ClientIP', 'UserName', 'Method', 'UriQuery', 'HttpStatus', 'Referer']
 
+# description: 'A list of authorized users'
+authorized_users: ['VAGRANT-IFT3JLA\vagrant']
+
 # description: 'Minimum number of users required for server to operate'
 minimal_local_users: ['Administrator', 'Guest', 'inspec']
 
