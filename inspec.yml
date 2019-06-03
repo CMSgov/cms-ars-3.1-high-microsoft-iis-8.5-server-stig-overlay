@@ -17,19 +17,19 @@ attributes:
     default: false
 
   - name: log_fileds
-    description: 'List of fields to be included in Web Server Logging Configuration'
+    description: 'List of fields to be included in Web Server Logging Configuration (e.g., [''Date'', ''Time'', ''ClientIP'', ''UserName'', ''Method'', ''UriQuery'', ''HttpStatus'', ''Referer''])'
     type: array
-    default: ['Date', 'Time', 'ClientIP', 'UserName', 'Method', 'UriQuery', 'HttpStatus', 'Referer']
+    default: []
 
   - name: minimal_local_users
-    description: 'Minimum number of users required for server to operate'
+    description: 'Minimum number of users required for server to operate (e.g., [''Administrator'', ''Guest'', ''inspec'']'
     type: array
-    default: ['Administrator', 'Guest', 'inspec']
+    default: []
 
   - name: log_directory
-    description: 'IIS site log directory'
+    description: 'IIS site log directory (e.g., ''C:\inetpub\logs\LogFiles'')'
     type: string
-    default: 'C:\inetpub\logs\LogFiles'
+    default: ''
 
   - name: file_system_object_component_required
     description: 'Set to true if the file system object component is required for operations'
